@@ -7,6 +7,7 @@ using namespace std;
 template <typename T>
 class Node {
 public:
+
     T val;
     Node* next;
     Node(T val1) {
@@ -59,7 +60,7 @@ public:
     {
         if (isEmpty())
         {
-            cout << "List is empty\n";
+            cout << "List is Empty\n";
             return;
         }
         Node<T>* curr = head;
@@ -70,12 +71,27 @@ public:
         }
         cout << endl;
     }
-    T getVal()
+    void search()
     {
         if (isEmpty())
         {
             cout << "List is empty\n";
-            return T(); // Return default value for type T
+            return;
+        }
+        Node<T>* curr = head;
+        while (curr&&curr->val)
+        {
+            cout << curr->val << " ";
+            curr = curr->next;
+        }
+        cout << endl;
+    }
+    T pop()
+    {
+        if (isEmpty())
+        {
+            cout << "List is empty\n";
+            return T();
         }
         Node<T>* tmp = head;
         T val = tmp->val;
@@ -144,3 +160,4 @@ public:
         head = nullptr;
     }
 };
+
